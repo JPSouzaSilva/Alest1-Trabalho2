@@ -43,6 +43,7 @@ public class GerenciadorListaRua {
                     break;
                 case "2":
                     System.out.println(listaDeRuas.maiorNumSinalizacao());
+                    break;
                 case "3":
                     nav();
                     break;

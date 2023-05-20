@@ -48,8 +48,9 @@ public class ListaDeSinalizacoes {
     }
 
     public Sinalizacao get(int index) { // O(n)
+
         if ((index < 0) || (index >= count)) {
-            throw new IndexOutOfBoundsException();
+            return null;
         }
         if (index == count-1)
             return tail.element;

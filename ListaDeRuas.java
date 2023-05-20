@@ -155,11 +155,11 @@ public class ListaDeRuas {
                     return "Erro, foi selecionado um Nodo null para fazer a navegação.";
                 }
                 s = s + "O número de sinalizações da rua selecionada: " + currentNav.nomeDaRua + " é de: "  + currentNav.lista.size();
-//                Sinalizacao sinalizacao = currentNav.lista.get(0);
-//                if(sinalizacao == null){
-//                    return "Erro, foi selecionado um Nodo null para fazer a navegação.";
-//                }
-                s = s + "\nA primeira sinalização registrada na rua é: \n" + currentNav.lista.get(0).toString();
+                Sinalizacao sinalizacao1 = currentNav.lista.get(0);
+                if(sinalizacao1 == null){
+                    return "Rua sem sinalizações cadastradas";
+                }
+                s = s + "\nA primeira sinalização registrada na rua é: \n" + sinalizacao1.toString();
                 int ind = currentNav.lista.size() - 1;
                 s = s + "\nA última sinalização registrada na rua é: \n" + currentNav.lista.get(ind).toString();
             }
