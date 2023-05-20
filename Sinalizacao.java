@@ -3,12 +3,12 @@ import java.time.LocalDate;
 public class Sinalizacao {
     private String descricao;
     private LocalDate dataImplantacao;
-    private int numInicial;
-    private int numFinal;
+    private double numInicial;
+    private double numFinal;
     private String lado;
     private String local;
     
-    public Sinalizacao(String descricao, LocalDate implantacao, int numInicial, int numFinal, String lado, String local) {
+    public Sinalizacao(String descricao, LocalDate implantacao, double numInicial, double numFinal, String lado, String local) {
         this.descricao = descricao;
         this.dataImplantacao = implantacao;
         this.numInicial = numInicial;
@@ -21,33 +21,60 @@ public class Sinalizacao {
         return descricao;
     }
 
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
     public LocalDate getDataImplantacao() {
         return dataImplantacao;
     }
 
-    public int getNumInicial() {
+    public void setDataImplantacao(LocalDate dataImplantacao) {
+        this.dataImplantacao = dataImplantacao;
+    }
+
+    public double getNumInicial() {
         return numInicial;
     }
 
-    public int getNumFinal() {
+    public void setNumInicial(double numInicial) {
+        this.numInicial = numInicial;
+    }
+
+    public double getNumFinal() {
         return numFinal;
+    }
+
+    public void setNumFinal(double numFinal) {
+        this.numFinal = numFinal;
     }
 
     public String getLado() {
         return lado;
     }
 
+    public void setLado(String lado) {
+        this.lado = lado;
+    }
+
     public String getLocal() {
         return local;
     }
 
+    public void setLocal(String local) {
+        this.local = local;
+    }
+
     @Override
     public String toString() {
-        return "Sinalizacao [descricao=" + descricao
-         + ", implantacao=" + dataImplantacao
-          + ", numInicial=" + numInicial
-                + ", numFinal=" + numFinal
-                 + ", lado=" + lado
-                  + ", local=" + local + "]";
+        return "Sinalizacao{" +
+                "descricao='" + descricao + '\'' +
+                ", dataImplantacao=" + dataImplantacao +
+                ", numInicial=" + numInicial +
+                ", numFinal=" + numFinal +
+                ", lado='" + lado + '\'' +
+                ", local='" + local + '\'' +
+                '}';
     }
+
 }

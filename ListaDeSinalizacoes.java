@@ -37,6 +37,50 @@ public class ListaDeSinalizacoes {
         return count;
     }
 
+    public boolean isEmpty() {
+        return (head == null);
+    }
+
+    public void clear() {
+        head = null;
+        tail = null;
+        count = 0;
+    }
+
+    public Sinalizacao get(int index) { // O(n)
+        if ((index < 0) || (index >= count)) {
+            throw new IndexOutOfBoundsException();
+        }
+        if (index == count-1)
+            return tail.element;
+
+        Node aux = head;
+        int c = 0;
+        while (c < index) {
+            aux = aux.next;
+            c++;
+        }
+        return aux.element;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public int getMes(int index) {
         // retorna o mês de implantação da iésima sinalização
         return -1;
@@ -44,7 +88,7 @@ public class ListaDeSinalizacoes {
 
     public LocalDate getDataImplantacao(int index) {
         // retorna data de implantação da iésima sinalização, para depois comparar qual é maior ou menor
-        
+        return null;
     }
 
     public LocalDate getMenorData()  {
@@ -69,7 +113,16 @@ public class ListaDeSinalizacoes {
 
     }
 
-
+    public String listaSinalizacoes(){
+        Node aux = head;
+        String s = "";
+        while(aux!=null){
+            s = s + aux.element.toString();
+            aux = aux.next;
+            s = s + "\n";
+        }
+        return s;
+    }
 
 
 
