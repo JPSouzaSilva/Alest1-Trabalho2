@@ -19,10 +19,7 @@ public class GerenciadorListaRua {
 
     public void menu(){
         String opcao;
-
-
-
-        do{
+        do {
             System.out.println("----MENU----");
             System.out.println("Para encerrar o programa aperte: 0");
             System.out.println("Para listar todas as ruas com  suas repectivas sinalizações: 1");
@@ -34,7 +31,7 @@ public class GerenciadorListaRua {
             System.out.println("Informa e opção desejada: ");
             opcao = input.nextLine();
 
-            switch (opcao){
+            switch(opcao) {
                 case "0":
                     System.out.println("Fim do programa");
                     break;
@@ -50,14 +47,8 @@ public class GerenciadorListaRua {
             }
 
 
-        }while(!opcao.equals("0"));
-
-
-
-
+        } while(!opcao.equals("0"));
     }
-
-
 
     public void nav(){
         System.out.println("--Você entrou em modo navegação--");
@@ -65,8 +56,6 @@ public class GerenciadorListaRua {
         System.out.println(listaDeRuas.primeiraRuaInfo());
 
         String opcao;
-
-
         do {
             System.out.println("--Menu--");
             System.out.println("Digite 0 para sair do modo de navegação.");
@@ -76,7 +65,7 @@ public class GerenciadorListaRua {
             System.out.println("Informa e opção desejada: ");
             opcao = input.nextLine();
 
-            switch (opcao){
+            switch(opcao) {
                 case "0": System.out.println("Fim do programa");
                     break;
                 case "1":
@@ -99,17 +88,8 @@ public class GerenciadorListaRua {
                     break;
             }
 
-        } while (!opcao.equals("0"));
+        } while(!opcao.equals("0"));
     }
-
-
-
-
-
-
-
-
-
 
     public void insereDados(){
 
@@ -197,7 +177,6 @@ public class GerenciadorListaRua {
             Sinalizacao sinalizacao = new Sinalizacao(descricao,date,numInicial,numFinal,lado,localInstalacao);
 
             listaDeRuas.insereOrdenado(logradouro,nomeLog,sinalizacao);
-
         }
     }
 
