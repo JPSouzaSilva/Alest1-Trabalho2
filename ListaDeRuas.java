@@ -22,8 +22,6 @@ public class ListaDeRuas {
         }
     }
 
-
-
     public ListaDeRuas() {
         header = new Node(null,null);
         trailer = new Node(null,null);
@@ -80,6 +78,14 @@ public class ListaDeRuas {
         }
     }
 
+    public void reset() {
+        header = new Node(null,null);
+        trailer = new Node(null,null);
+        header.next = trailer;
+        trailer.prev = header;
+        count = 0;
+    }
+
     public Node contains(String nomeRua) {
         Node aux = header.next;
         for(int i=0; i<count; i++) {
@@ -130,11 +136,13 @@ public class ListaDeRuas {
         return nome;
     }
 
+    // public int mesMaisSinalizacao() {
+        
+    // }
 
     public void inicializa(){
         currentNav = header.next;
     }
-
 
     public String navegacao(int opcao){
         String s="";
@@ -181,6 +189,7 @@ public class ListaDeRuas {
         s = s + "A última sinalização registrada na rua é: \n" + header.next.lista.get(ind).toString();
         return s;
     }
+}
 
     public int mesMaisSinalizacao() {
         Node aux = header.next;
@@ -245,6 +254,5 @@ public class ListaDeRuas {
 
 
 
-}
 
 

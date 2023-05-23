@@ -19,10 +19,7 @@ public class GerenciadorListaRua {
 
     public void menu(){
         String opcao;
-
-
-
-        do{
+        do {
             System.out.println("----MENU----");
             System.out.println("Para encerrar o programa aperte: 0");
             System.out.println("Para listar todas as ruas com  suas repectivas sinalizações: 1");
@@ -35,7 +32,7 @@ public class GerenciadorListaRua {
             System.out.println("Informa e opção desejada: ");
             opcao = input.nextLine();
 
-            switch (opcao){
+            switch(opcao) {
                 case "0":
                     System.out.println("Fim do programa");
                     break;
@@ -52,9 +49,8 @@ public class GerenciadorListaRua {
                     nav();
                     break;
             }
-        }while(!opcao.equals("0"));
-    }
 
+        }while(!opcao.equals("0"));
 
 
     public void nav(){
@@ -63,8 +59,6 @@ public class GerenciadorListaRua {
         System.out.println(listaDeRuas.primeiraRuaInfo());
 
         String opcao;
-
-
         do {
             System.out.println("--Sub-Menu-Navegação--");
             System.out.println("Digite 0 para sair do modo de navegação.");
@@ -73,7 +67,7 @@ public class GerenciadorListaRua {
             System.out.println("Informa e opção desejada: ");
             opcao = input.nextLine();
 
-            switch (opcao){
+            switch(opcao) {
                 case "0": System.out.println("Fim do programa");
                     break;
                 case "1":
@@ -96,7 +90,7 @@ public class GerenciadorListaRua {
                     break;
             }
 
-        } while (!opcao.equals("0"));
+        } while(!opcao.equals("0"));
     }
 
 
@@ -180,13 +174,10 @@ public class GerenciadorListaRua {
                 localInstalacao = campos[12];
 
 
-            // Tenho que criar a sinalizacao e Pegar O nome da rua + o Identificador para jogar na
-            // lista de ruas, criar o Nodo.
-
+           
             Sinalizacao sinalizacao = new Sinalizacao(descricao,date,numInicial,numFinal,lado,localInstalacao);
 
             listaDeRuas.insereOrdenado(logradouro,nomeLog,sinalizacao);
-
         }
     }
 }
