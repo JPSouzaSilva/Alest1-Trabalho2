@@ -33,7 +33,6 @@ public class ListaDeSinalizacoes {
         count++;
     }
 
-
     public int size() {
         return count;
     }
@@ -62,6 +61,7 @@ public class ListaDeSinalizacoes {
             c++;
         }
         return aux.element;
+    }
     
     public int getMes(int index) {
         int valor;
@@ -86,7 +86,7 @@ public class ListaDeSinalizacoes {
         if(dataImplantacao==null){
             return -1;
         }
-        return dataImplantacao.getMonthValue(
+        return dataImplantacao.getMonthValue();
     }
 
     public LocalDate getDataImplantacao(int index) {
@@ -105,25 +105,10 @@ public class ListaDeSinalizacoes {
         return aux.element.getDataImplantacao();
     }
 
-    public LocalDate getMenorData()  {
-        Sinalizacao aux = head.element;
-        return aux.getDataImplantacao();
-    }
-
-    public LocalDate getMaiorData() {
-
-        Sinalizacao aux = tail.element;
-        return aux.getDataImplantacao();
-    }
-
     public void reset() {
         head = null;
         tail = null;
         count = 0;
-    }
-
-    public void next() {
-
     }
 
     public String listaSinalizacoes(){
