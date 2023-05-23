@@ -151,15 +151,21 @@ public class ListaDeRuas {
             if(opcao==1){
                currentNav = currentNav.prev;
                 if(currentNav== header){
+                    currentNav = currentNav.next;
                     return "Erro, foi selecionado um Nodo null para fazer a navegação.";
                 }
                 s = s + "O número de sinalizações da rua selecionada: " + currentNav.nomeDaRua + " é de: "  + currentNav.lista.size();
-                s = s + "\nA primeira sinalização registrada na rua é: \n" + currentNav.lista.get(0).toString();
+                Sinalizacao sinalizacao1 = currentNav.lista.get(0);
+                if(sinalizacao1 == null){
+                    return "Rua sem sinalizações cadastradas";
+                }
+                s = s + "\nA primeira sinalização registrada na rua é: \n" + sinalizacao1.toString();
                 int ind = currentNav.lista.size() - 1;
                 s = s + "\nA última sinalização registrada na rua é: \n" + currentNav.lista.get(ind).toString();
             } else {
                 currentNav = currentNav.next;
                 if(currentNav== trailer){
+                    currentNav = currentNav.prev;
                     return "Erro, foi selecionado um Nodo null para fazer a navegação.";
                 }
                 s = s + "O número de sinalizações da rua selecionada: " + currentNav.nomeDaRua + " é de: "  + currentNav.lista.size();
@@ -184,6 +190,68 @@ public class ListaDeRuas {
         return s;
     }
 }
+
+    public int mesMaisSinalizacao() {
+        Node aux = header.next;
+        int mes;
+        int pos = -1;
+        int maior = 0;
+        int[] meses = new int[12];
+        while (aux != null) {
+            for (int i = 0; i < aux.lista.size(); i++) {
+                mes = aux.lista.getMes(i);
+                switch (mes) {
+                    case 1:
+                        meses[0] += 1;
+                        break;
+                    case 2:
+                        meses[1] += 1;
+                        break;
+                    case 3:
+                        meses[2] += 1;
+                        break;
+                    case 4:
+                        meses[3] += 1;
+                        break;
+                    case 5:
+                        meses[4] += 1;
+                        break;
+                    case 6:
+                        meses[5] += 1;
+                        break;
+                    case 7:
+                        meses[6] += 1;
+                        break;
+                    case 8:
+                        meses[7] += 1;
+                        break;
+                    case 9:
+                        meses[8] += 1;
+                        break;
+                    case 10:
+                        meses[9] += 1;
+                        break;
+                    case 11:
+                        meses[10] += 1;
+                        break;
+                    case 12:
+                        meses[11] += 1;
+                        break;
+                    default:
+
+                }
+            }
+            aux = aux.next;
+        }
+        for (int i = 0; i < meses.length; i++) {
+            if (meses[i] > maior) {
+                maior = meses[i];
+                pos = i;
+            }
+        }
+        return pos+1;
+    }
+
 
 
 

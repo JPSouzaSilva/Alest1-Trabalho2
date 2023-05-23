@@ -33,6 +33,7 @@ public class ListaDeSinalizacoes {
         count++;
     }
 
+
     public int size() {
         return count;
     }
@@ -61,22 +62,31 @@ public class ListaDeSinalizacoes {
             c++;
         }
         return aux.element;
-    }
-
+    
     public int getMes(int index) {
+        int valor;
+        // retorna o mês de implantação da iésima sinalização
         if ((index < 0) || (index >= count)) {
             return -1;
         }
-        if (index == count-1)
+        if (index == count-1) {
+            LocalDate dataImplantacao = tail.element.getDataImplantacao();
+            if (dataImplantacao == null) {
+                return -1;
+            }
             return tail.element.getDataImplantacao().getMonthValue();
-
+        }
         Node aux = head;
         int c = 0;
         while (c < index) {
             aux = aux.next;
             c++;
         }
-        return aux.element.getDataImplantacao().getMonthValue();
+        LocalDate dataImplantacao = aux.element.getDataImplantacao();
+        if(dataImplantacao==null){
+            return -1;
+        }
+        return dataImplantacao.getMonthValue(
     }
 
     public LocalDate getDataImplantacao(int index) {
@@ -101,6 +111,7 @@ public class ListaDeSinalizacoes {
     }
 
     public LocalDate getMaiorData() {
+
         Sinalizacao aux = tail.element;
         return aux.getDataImplantacao();
     }

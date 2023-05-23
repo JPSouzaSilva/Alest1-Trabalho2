@@ -24,7 +24,8 @@ public class GerenciadorListaRua {
             System.out.println("Para encerrar o programa aperte: 0");
             System.out.println("Para listar todas as ruas com  suas repectivas sinalizações: 1");
             System.out.println("Para listar o nome da Rua/Av/Trav com mais sinalizações instaladas: 2");
-            System.out.println("Para entrar em modo navegação: 3");
+            System.out.println("Para listar o mês com maior numero de sinalizações: 3");
+            System.out.println("Para entrar em modo navegação: 4");
 
 
 
@@ -42,13 +43,15 @@ public class GerenciadorListaRua {
                     System.out.println(listaDeRuas.maiorNumSinalizacao());
                     break;
                 case "3":
+                    System.out.println("O mês com mais sinalizações instaladas foi: "+ listaDeRuas.mesMaisSinalizacao());
+                    break;
+                case "4":
                     nav();
                     break;
             }
 
+        }while(!opcao.equals("0"));
 
-        } while(!opcao.equals("0"));
-    }
 
     public void nav(){
         System.out.println("--Você entrou em modo navegação--");
@@ -57,11 +60,10 @@ public class GerenciadorListaRua {
 
         String opcao;
         do {
-            System.out.println("--Menu--");
+            System.out.println("--Sub-Menu-Navegação--");
             System.out.println("Digite 0 para sair do modo de navegação.");
             System.out.println("Digite 1 para retroceder de rua.");
             System.out.println("Digite 2 para avançar de rua");
-
             System.out.println("Informa e opção desejada: ");
             opcao = input.nextLine();
 
@@ -90,6 +92,7 @@ public class GerenciadorListaRua {
 
         } while(!opcao.equals("0"));
     }
+
 
     public void insereDados(){
 
@@ -171,13 +174,10 @@ public class GerenciadorListaRua {
                 localInstalacao = campos[12];
 
 
-            // Tenho que criar a sinalizacao e Pegar O nome da rua + o Identificador para jogar na
-            // lista de ruas, criar o Nodo.
-
+           
             Sinalizacao sinalizacao = new Sinalizacao(descricao,date,numInicial,numFinal,lado,localInstalacao);
 
             listaDeRuas.insereOrdenado(logradouro,nomeLog,sinalizacao);
         }
     }
-
 }
