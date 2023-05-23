@@ -33,6 +33,7 @@ public class ListaDeSinalizacoes {
         count++;
     }
 
+
     public int size() {
         return count;
     }
@@ -63,33 +64,46 @@ public class ListaDeSinalizacoes {
         }
         return aux.element;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public int getMes(int index) {
+        int valor;
         // retorna o mês de implantação da iésima sinalização
-        return -1;
+        if ((index < 0) || (index >= count)) {
+            return -1;
+        }
+        if (index == count-1) {
+            LocalDate dataImplantacao = tail.element.getDataImplantacao();
+            if (dataImplantacao == null) {
+                return -1;
+            }
+            return tail.element.getDataImplantacao().getMonthValue();
+        }
+        Node aux = head;
+        int c = 0;
+        while (c < index) {
+            aux = aux.next;
+            c++;
+        }
+        LocalDate dataImplantacao = aux.element.getDataImplantacao();
+        if(dataImplantacao==null){
+            return -1;
+        }
+        return dataImplantacao.getMonthValue();
     }
 
     public LocalDate getDataImplantacao(int index) {
-        // retorna data de implantação da iésima sinalização, para depois comparar qual é maior ou menor
-        return null;
+        if ((index < 0) || (index >= count)) {
+            return null;
+        }
+        if (index == count-1)
+            return tail.element.getDataImplantacao();
+
+        Node aux = head;
+        int c = 0;
+        while (c < index) {
+            aux = aux.next;
+            c++;
+        }
+        return aux.element.getDataImplantacao();
     }
 
     public LocalDate getMenorData()  {
@@ -99,7 +113,7 @@ public class ListaDeSinalizacoes {
     }
 
     public LocalDate getMaiorData() {
-        // retorna a data da última sinalização instalada (considerando esta lista)
+        // compara todas as datas e retorna maior data
         Sinalizacao aux = tail.element;
         return aux.getDataImplantacao();
     }
