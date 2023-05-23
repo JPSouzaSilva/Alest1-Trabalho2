@@ -50,8 +50,8 @@ public class GerenciadorListaRua {
                     break;
             }
 
-        }while(!opcao.equals("0"));
-
+        } while(!opcao.equals("0"));
+    }
 
     public void nav(){
         System.out.println("--Você entrou em modo navegação--");

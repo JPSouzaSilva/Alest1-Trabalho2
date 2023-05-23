@@ -97,15 +97,6 @@ public class ListaDeRuas {
         return null;
     }
 
-//    public Integer next() {
-//        if (current != trailer) {
-//            Integer num = current.element;
-//            current = current.next;
-//            return num;
-//        }
-//        return null;
-//    }
-
     public String listaTudo(){
         Node aux = header.next;
         String s = "";
@@ -135,10 +126,6 @@ public class ListaDeRuas {
         nome = maior2.nomeDaRua;
         return nome;
     }
-
-    // public int mesMaisSinalizacao() {
-        
-    // }
 
     public void inicializa(){
         currentNav = header.next;
@@ -189,7 +176,7 @@ public class ListaDeRuas {
         s = s + "A última sinalização registrada na rua é: \n" + header.next.lista.get(ind).toString();
         return s;
     }
-}
+
 
     public int mesMaisSinalizacao() {
         Node aux = header.next;
@@ -251,6 +238,7 @@ public class ListaDeRuas {
         }
         return pos+1;
     }
+}
 
 
 
