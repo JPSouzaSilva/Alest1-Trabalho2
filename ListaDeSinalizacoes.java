@@ -64,6 +64,9 @@ public class ListaDeSinalizacoes {
     }
 
     public LocalDate getMenorData() {
+        if (head == null) {
+            return null;
+        }
         Node aux = head;
         LocalDate menorDataAtual;
         LocalDate menorData = head.element.getDataImplantacao();
@@ -82,9 +85,12 @@ public class ListaDeSinalizacoes {
 
 
     public LocalDate getMaiorData() {
+        if (head == null) {
+            return null;
+        }
         Node aux = head;
         LocalDate maiorDataAtual;
-        LocalDate maiorData = head.element.getDataImplantacao();;
+        LocalDate maiorData = head.element.getDataImplantacao();
         for (int i = 0; i < count; i++) {
             maiorDataAtual = aux.element.getDataImplantacao();
             if (maiorDataAtual == null) {
