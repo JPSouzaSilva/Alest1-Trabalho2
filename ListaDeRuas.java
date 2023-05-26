@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class ListaDeRuas {
 
     private Node header;
@@ -78,7 +80,7 @@ public class ListaDeRuas {
         }
     }
 
-    public void reset() {
+    public void clear() {
         header = new Node(null,null);
         trailer = new Node(null,null);
         header.next = trailer;
@@ -110,8 +112,8 @@ public class ListaDeRuas {
 
     public String maiorNumSinalizacao(){
         String nome;
-        Node maior2 = null;
         Node aux = header.next;
+        Node maior2 = null;
         int maior = -1;
         int numSin;
 
@@ -127,7 +129,7 @@ public class ListaDeRuas {
         return nome;
     }
 
-    public void inicializa(){
+    public void reset(){
         currentNav = header.next;
     }
 
@@ -135,34 +137,32 @@ public class ListaDeRuas {
         String s="";
 
 
-            if(opcao==1){
+            if (opcao==1){
                currentNav = currentNav.prev;
-                if(currentNav== header){
+                if (currentNav== header){
                     currentNav = currentNav.next;
                     return "Erro, foi selecionado um Nodo null para fazer a navegação.";
                 }
                 s = s + "O número de sinalizações da rua selecionada: " + currentNav.nomeDaRua + " é de: "  + currentNav.lista.size();
-                Sinalizacao sinalizacao1 = currentNav.lista.get(0);
-                if(sinalizacao1 == null){
+                LocalDate sinalizacao1 = currentNav.lista.getMenorData();
+                if (sinalizacao1 == null){
                     return "Rua sem sinalizações cadastradas";
                 }
                 s = s + "\nA primeira sinalização registrada na rua é: \n" + sinalizacao1.toString();
-                int ind = currentNav.lista.size() - 1;
-                s = s + "\nA última sinalização registrada na rua é: \n" + currentNav.lista.get(ind).toString();
+                s = s + "\nA última sinalização registrada na rua é: \n" + currentNav.lista.getMaiorData().toString();
             } else {
                 currentNav = currentNav.next;
-                if(currentNav== trailer){
+                if (currentNav== trailer){
                     currentNav = currentNav.prev;
                     return "Erro, foi selecionado um Nodo null para fazer a navegação.";
                 }
                 s = s + "O número de sinalizações da rua selecionada: " + currentNav.nomeDaRua + " é de: "  + currentNav.lista.size();
-                Sinalizacao sinalizacao1 = currentNav.lista.get(0);
-                if(sinalizacao1 == null){
+                LocalDate sinalizacao1 = currentNav.lista.getMenorData();
+                if (sinalizacao1 == null){
                     return "Rua sem sinalizações cadastradas";
                 }
                 s = s + "\nA primeira sinalização registrada na rua é: \n" + sinalizacao1.toString();
-                int ind = currentNav.lista.size() - 1;
-                s = s + "\nA última sinalização registrada na rua é: \n" + currentNav.lista.get(ind).toString();
+                s = s + "\nA última sinalização registrada na rua é: \n" + currentNav.lista.getMaiorData().toString();
             }
             return s;
     }
@@ -171,9 +171,8 @@ public class ListaDeRuas {
         String s = "";
 
         s = s + "O número de sinalizações da primeira rua é : " + header.next.nomeDaRua + " é de: "  + header.next.lista.size();
-        s = s + "A primeira sinalização registrada na rua é: \n" + header.next.lista.get(0).toString();
-        int ind = header.next.lista.size() - 1;
-        s = s + "A última sinalização registrada na rua é: \n" + header.next.lista.get(ind).toString();
+        s = s + "A primeira sinalização registrada na rua é: \n" + header.next.lista.getMenorData().toString();
+        s = s + "A última sinalização registrada na rua é: \n" + header.next.lista.getMaiorData().toString();
         return s;
     }
 

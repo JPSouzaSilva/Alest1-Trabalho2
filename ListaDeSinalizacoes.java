@@ -62,10 +62,43 @@ public class ListaDeSinalizacoes {
         }
         return aux.element;
     }
+
+    public LocalDate getMenorData() {
+        Node aux = head;
+        LocalDate menorDataAtual;
+        LocalDate menorData = head.element.getDataImplantacao();
+        for (int i = 0; i < count; i++) {
+            menorDataAtual = aux.element.getDataImplantacao();
+            if (menorDataAtual == null) {
+                return null;
+            }
+            if (menorDataAtual.isAfter(menorData)) {
+                menorData = menorDataAtual;
+            }
+            aux = aux.next;
+        }
+        return menorData;
+    }
+
+
+    public LocalDate getMaiorData() {
+        Node aux = head;
+        LocalDate maiorDataAtual;
+        LocalDate maiorData = head.element.getDataImplantacao();;
+        for (int i = 0; i < count; i++) {
+            maiorDataAtual = aux.element.getDataImplantacao();
+            if (maiorDataAtual == null) {
+                return null;
+            }
+            if (maiorDataAtual.isBefore(maiorData)){
+                maiorData = maiorDataAtual;
+            }
+            aux = aux.next;
+        }
+        return maiorData;
+    }
     
     public int getMes(int index) {
-        int valor;
-        // retorna o mês de implantação da iésima sinalização
         if ((index < 0) || (index >= count)) {
             return -1;
         }
@@ -103,12 +136,6 @@ public class ListaDeSinalizacoes {
             c++;
         }
         return aux.element.getDataImplantacao();
-    }
-
-    public void reset() {
-        head = null;
-        tail = null;
-        count = 0;
     }
 
     public String listaSinalizacoes(){

@@ -55,7 +55,7 @@ public class GerenciadorListaRua {
 
     public void nav(){
         System.out.println("--Você entrou em modo navegação--");
-        listaDeRuas.inicializa();
+        listaDeRuas.reset();
         System.out.println(listaDeRuas.primeiraRuaInfo());
 
         String opcao;
