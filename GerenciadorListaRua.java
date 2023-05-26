@@ -102,7 +102,7 @@ public class GerenciadorListaRua {
         Path filePath = Paths.get("dataEditado.csv");
 
         // Ler o arquivo
-        try ( BufferedReader reader = Files.newBufferedReader(filePath, Charset.defaultCharset())) {
+        try ( BufferedReader reader = Files.newBufferedReader(filePath, Charset.forName("UTF-8"))) {
             String line = reader.readLine();
             line = reader.readLine();
             while (line != null) {

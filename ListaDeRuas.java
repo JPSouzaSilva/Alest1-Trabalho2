@@ -148,8 +148,8 @@ public class ListaDeRuas {
                 if (sinalizacao1 == null){
                     return "Rua sem sinalizações cadastradas";
                 }
-                s = s + "\nA primeira sinalização registrada na rua é: \n" + sinalizacao1.toString();
-                s = s + "\nA última sinalização registrada na rua é: \n" + currentNav.lista.getMaiorData().toString();
+                s = s + "\nA primeira sinalização registrada na rua é: " + sinalizacao1.toString();
+                s = s + "\nA última sinalização registrada na rua é: " + currentNav.lista.getMaiorData().toString();
             } else {
                 currentNav = currentNav.next;
                 if (currentNav== trailer){
@@ -161,8 +161,8 @@ public class ListaDeRuas {
                 if (sinalizacao1 == null){
                     return "Rua sem sinalizações cadastradas";
                 }
-                s = s + "\nA primeira sinalização registrada na rua é: \n" + sinalizacao1.toString();
-                s = s + "\nA última sinalização registrada na rua é: \n" + currentNav.lista.getMaiorData().toString();
+                s = s + "\nA primeira sinalização registrada na rua é: " + sinalizacao1.toString();
+                s = s + "\nA última sinalização registrada na rua é: " + currentNav.lista.getMaiorData().toString();
             }
             return s;
     }
@@ -170,9 +170,9 @@ public class ListaDeRuas {
     public String primeiraRuaInfo(){
         String s = "";
 
-        s = s + "O número de sinalizações da primeira rua é : " + header.next.nomeDaRua + " é de: "  + header.next.lista.size();
-        s = s + "A primeira sinalização registrada na rua é: \n" + header.next.lista.getMenorData().toString();
-        s = s + "A última sinalização registrada na rua é: \n" + header.next.lista.getMaiorData().toString();
+        s = s + "\nO número de sinalizações da primeira rua é : " + header.next.nomeDaRua + " é de: "  + header.next.lista.size();
+        s = s + "\nA primeira sinalização registrada na rua é: " + header.next.lista.getMenorData().toString();
+        s = s + "\nA última sinalização registrada na rua é: " + header.next.lista.getMaiorData().toString();
         return s;
     }
 
